@@ -1,0 +1,46 @@
+.checklist {
+  &-item {
+    @extend .py-1;
+
+    cursor: pointer;
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+
+    &:hover {
+      .checklist-item-actions {
+        opacity: 1;
+      }
+
+      .checklist-item-check * {
+        fill: $success;
+      }
+    }
+  }
+
+  &-item-icon {
+    @extend .icon-xs, .icon-dark;
+  }
+
+  &-item-content {
+    align-items: center;
+    display: flex;
+    flex-grow: 1;
+  }
+
+  &-item-check {
+    @extend .checklist-item-icon;
+  }
+
+  &-item-actions {
+    opacity: 0;
+  }
+
+  &-item-delete svg {
+    @extend .checklist-item-icon;
+
+    &:hover svg {
+      @extend .icon-danger;
+    }
+  }
+}

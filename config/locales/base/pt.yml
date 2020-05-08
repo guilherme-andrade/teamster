@@ -1,0 +1,12 @@
+---
+pt:
+  alerts:
+    not_allowed: Not allowed
+    this_area_is_only_for_administrators: This area is only for administrators
+  errors:
+    messages:
+      not_saved: Not saved
+  globals:
+    ask_for_help: Ask for help
+    cancel: Cancel
+    or: Or

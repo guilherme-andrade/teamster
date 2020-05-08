@@ -1,0 +1,11 @@
+$color-red-error: $danger !default;
+$color-green-success: $success;
+$color-grey-arrow: $dark !default;
+
+$width-default: 220px !default; // 3 960px-grid columns
+
+$zindex-select-dropdown: 1060 !default; // must be higher than a modal background (1050)
+
+//** Placeholder text color
+$input-color-placeholder: $dark !default;
+$input-alt-color-placeholder: $text-muted !default;

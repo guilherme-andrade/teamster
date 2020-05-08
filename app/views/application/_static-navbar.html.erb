@@ -1,0 +1,17 @@
+<nav class="navbar navbar-expand-lg navbar-light justify-content-between w-100">
+  <a class="navbar-brand" href="#">
+    <%= inline_svg 'logo-fitted.svg' %>
+  </a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse flex-grow-0" id="navbarNavAltMarkup">
+    <div class="navbar-nav navbar-right">
+      <a class="nav-item nav-link active" href="#">Home <span class="sr-only">(current)</span></a>
+      <a class="nav-item nav-link" href="#">Features</a>
+      <a class="nav-item nav-link" href="#">Pricing</a>
+      <%= link_to t('components.navbar.sign_in'), new_user_session_path, class: 'nav-item nav-link font-weight-bold' %>
+    </div>
+  </div>
+</nav>
+

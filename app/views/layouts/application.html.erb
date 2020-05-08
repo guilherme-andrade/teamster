@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+  <%= render 'head' %>
+<body>
+  <%= render 'flashes' %>
+  <section class="application">
+    <aside class="application-sidebar">
+      <%= render 'sidebar' %>
+    </aside>
+    <main class="application-content">
+      <%= yield %>
+    </main>
+  </section>
+  <%= render 'javascript' %>
+  <%= render 'css_overrides' %>
+</body>
+</html>

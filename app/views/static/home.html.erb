@@ -1,0 +1,23 @@
+<div class="screen screen-with-header">
+  <%= inline_svg 'layers/landing-banner-background.svg', class: 'screen-background' %>
+  <div class="screen-layer screen-container container-fluid pb-10">
+    <div class="row h-100 align-items-center">
+      <div class="col-12 col-lg-6">
+        <%= image_tag 'delivery.png', class: 'w-100' %>
+      </div>
+      <div class="col-lg-5 pl-lg-5">
+        <h1 class="display-1">
+          <%= t('components.landing_banner.the_best_way_to_deliver') %>
+        </h1>
+        <p class="lead mb-6">
+          <%= t('components.landing_banner.sign_up_now_to_start_dispatching') %>
+        </p>
+        <% if user_signed_in? %>
+          <%= link_to t('components.landing_banner.sign_up_now'), dashboard_path, class: 'btn-lg btn-primary' %>
+        <% else %>
+          <%= link_to t('components.landing_banner.sign_up_now'), new_user_registration_path, class: 'btn-lg btn-primary' %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

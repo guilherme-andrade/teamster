@@ -1,0 +1,12 @@
+.flashes {
+  position: fixed;
+  top: calc(#{$navbar-height} + #{$spacer});
+  right: $spacer;
+  z-index: $zindex-modal;
+}
+
+.application {
+  .flashes {
+    top: $spacer;
+  }
+}

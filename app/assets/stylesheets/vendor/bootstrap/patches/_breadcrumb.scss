@@ -1,0 +1,42 @@
+.breadcrumb {
+  a {
+    color: inherit;
+
+    &.active {
+      color: unset;
+    }
+  }
+
+  &-timeline {
+    .breadcrumb-item {
+      display: flex;
+      align-items: center;
+
+      &:not(:first-of-type)::before {
+        @extend .icon-xs, .mr-2;
+
+        content: asset-url('icons/linear/chevron-right-small.svg');
+      }
+
+      a {
+        color: $body-color;
+      }
+
+      &.disabled{
+        a {
+          @extend .text-muted;
+        }
+
+        &:not(:first-of-type)::before {
+          opacity: 0.5;
+        }
+      }
+
+      &.active{
+        a {
+          @extend .font-weight-bold;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>First name:</strong>
+  <%= @recipient.first_name %>
+</p>
+
+<p>
+  <strong>Last name:</strong>
+  <%= @recipient.last_name %>
+</p>
+
+<p>
+  <strong>Mobile phone country:</strong>
+  <%= @recipient.mobile_phone_country_id %>
+</p>
+
+<p>
+  <strong>Mobile number:</strong>
+  <%= @recipient.mobile_number %>
+</p>
+
+<p>
+  <strong>Home address:</strong>
+  <%= @recipient.home_address_id %>
+</p>
+
+<p>
+  <strong>Work address:</strong>
+  <%= @recipient.work_address_id %>
+</p>
+
+<p>
+  <strong>Nationality country:</strong>
+  <%= @recipient.nationality_country_id %>
+</p>
+
+<%= link_to 'Edit', edit_recipient_path(@recipient) %> |
+<%= link_to 'Back', recipients_path %>

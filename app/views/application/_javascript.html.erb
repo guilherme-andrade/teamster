@@ -1,0 +1,4 @@
+<%= javascript_include_tag "https://maps.googleapis.com/maps/api/js?key=#{ENV['GOOGLE_SERVER_KEY']}&libraries=places" %>
+<%= javascript_pack_tag :application %>
+
+<%= yield :javascript %>

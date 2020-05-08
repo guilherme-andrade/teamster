@@ -1,0 +1,13 @@
+
+.navbar,
+.btn {
+  a {
+    text-decoration: none;
+  }
+}
+
+a {
+  &[class*="btn"] {
+    text-decoration: none;
+  }
+}

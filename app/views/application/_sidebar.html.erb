@@ -1,0 +1,69 @@
+<div class="sidebar">
+
+  <div class="d-flex pt-4 px-3 pb-2 align-items-center">
+    <%= inline_svg_tag 'logo-short.svg', class: 'icon-primary' %>
+    <h3 class="h5 mb-0 ml-3">
+      <%= current_organization.name %>
+    </h3>
+  </div>
+
+  <hr class="ml-3 divider divider-sm border-light">
+
+  <ul class="nav nav-sidebar flex-column">
+    <li class="nav-item">
+      <%= link_to root_path, class: 'nav-link py-2' do %>
+        <%= inline_svg_tag 'icons/linear/dashboard.svg', class: 'icon icon-sm mr-2' %>
+        <%= t('components.sidebar.dashboard') %>
+      <% end %>
+    </li>
+    <li class="nav-item">
+      <%= link_to service_requests_path, class: 'nav-link py-2' do %>
+        <%= inline_svg_tag 'icons/linear/orders.svg', class: 'icon icon-sm mr-2' %>
+        <%= t('components.sidebar.service_requests') %>
+      <% end %>
+    </li>
+    <li class="nav-item">
+      <%= link_to addresses_path, class: 'nav-link py-2' do %>
+        <%= inline_svg_tag 'icons/linear/pin.svg', class: 'icon icon-sm mr-2' %>
+        <%= t('components.sidebar.addressess') %>
+      <% end %>
+    </li>
+    <li class="nav-item">
+      <%= link_to warehouses_path, class: 'nav-link py-2' do %>
+        <%= inline_svg_tag 'icons/linear/warehouse.svg', class: 'icon icon-sm mr-2' %>
+        <%= t('components.sidebar.warehouses') %>
+      <% end %>
+    </li>
+    <li class="nav-item">
+      <%= link_to organization_path, class: 'nav-link py-2' do %>
+        <%= inline_svg_tag 'icons/linear/shop.svg', class: 'icon icon-sm mr-2' %>
+        <%= t('components.sidebar.shop') %>
+      <% end %>
+    </li>
+    <li class="nav-item">
+      <%= link_to recipients_path, class: 'nav-link py-2' do %>
+        <%= inline_svg_tag 'icons/linear/users.svg', class: 'icon icon-sm mr-2' %>
+        <%= t('components.sidebar.recipients') %>
+      <% end %>
+    </li>
+    <li class="nav-item">
+      <%= link_to 'payments_path', class: 'nav-link py-2' do %>
+        <%= inline_svg_tag 'icons/linear/credit-card.svg', class: 'icon icon-sm mr-2' %>
+        <%= t('components.sidebar.payments') %>
+      <% end %>
+    </li>
+    <li class="nav-item">
+      <%= link_to edit_user_registration_path, class: 'nav-link py-2' do %>
+        <%= inline_svg_tag 'icons/linear/settings.svg', class: 'icon icon-sm mr-2' %>
+        <%= t('components.sidebar.account_settings') %>
+      <% end %>
+    </li>
+  </ul>
+
+  <hr class="ml-3 divider divider-sm border-light mb-0">
+
+  <%= link_to destroy_user_session_path, class: 'nav-item nav-link py-3 text-muted small' do %>
+    <%= inline_svg_tag 'icons/linear/exit.svg', class: 'icon icon-xs icon-secondary mr-2' %>
+    <%= t('components.sidebar.sign_out') %>
+  <% end %>
+</div>

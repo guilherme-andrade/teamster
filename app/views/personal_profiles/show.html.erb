@@ -1,0 +1,44 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>First name:</strong>
+  <%= @personal_profile.first_name %>
+</p>
+
+<p>
+  <strong>Last name:</strong>
+  <%= @personal_profile.last_name %>
+</p>
+
+<p>
+  <strong>Owner:</strong>
+  <%= @personal_profile.owner_id %>
+</p>
+
+<p>
+  <strong>Mobile number:</strong>
+  <%= @personal_profile.mobile_number %>
+</p>
+
+<p>
+  <strong>Mobile country:</strong>
+  <%= @personal_profile.mobile_country_id %>
+</p>
+
+<p>
+  <strong>Nationality:</strong>
+  <%= @personal_profile.nationality_id %>
+</p>
+
+<p>
+  <strong>Vat number:</strong>
+  <%= @personal_profile.vat_number %>
+</p>
+
+<p>
+  <strong>Id number:</strong>
+  <%= @personal_profile.id_number %>
+</p>
+
+<%= link_to 'Edit', edit_personal_profile_path(@personal_profile) %> |
+<%= link_to 'Back', personal_profiles_path %>

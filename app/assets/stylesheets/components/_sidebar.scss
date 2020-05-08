@@ -1,0 +1,11 @@
+.sidebar {
+  @extend .pb-2;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  .nav {
+    flex-grow: 1;
+  }
+}

@@ -1,0 +1,9 @@
+.nav {
+  &-link {
+    &:hover {
+      svg * {
+        fill: $link-hover-color;
+      }
+    }
+  }
+}

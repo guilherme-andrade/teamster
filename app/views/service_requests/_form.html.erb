@@ -1,0 +1,257 @@
+<%= simple_form_for(@service_request_form, html: { data: { controller: 'service-requests--form' } }) do |f| %>
+  <%= f.error_notification %>
+  <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
+
+  <hr>
+
+  <section class="row align-items-end">
+    <div class="col-12">
+      <h1 class="h4 mb-4">
+        <%= t('components.service_request_form.recipient') %>
+      </h1>
+    </div>
+    <% unless @show_recipient %>
+      <div class="col-6">
+        <%= f.input :recipient_id,
+                    collection: current_organization.recipients,
+                    label: false,
+                    prompt: t('components.service_request_form.select_one'),
+                    input_html: { data: { style: 'form-control border' } } %>
+      </div>
+      <div class="col-6">
+        <div class="form-group">
+          <span class="pr-4">
+            <%= t('globals.or') %>
+          </span>
+          <%= button_tag t('components.service_request_form.add_new'),
+                         data: { reflex: 'click->ServiceRequests::FormReflex#init_recipient' },
+                         class: 'btn btn-primary' %>
+        </div>
+      </div>
+    <% end %>
+  </section>
+
+  <% if @show_recipient %>
+    <div class="row animate__fadeIn">
+      <div class="col-4">
+        <%= f.input :recipient_first_name %>
+      </div>
+      <div class="col-4">
+        <%= f.input :recipient_last_name %>
+      </div>
+      <div class="col-4">
+        <div class="form-group">
+          <label for="service_request_form[recipient_mobile_number]">
+            <%= t('components.service_request_form.phone_number') %>
+          </label>
+          <div class="input-group mb-3">
+            <div class="input-group-prepend">
+              <span class="input-group-text"> <small>(+351)</small></span>
+            </div>
+            <%= f.input :recipient_mobile_number, as: :tel, wrapper: false, label: false %>
+          </div>
+        </div>
+      </div>
+      <div class="col-6">
+        <%= f.input :delivery_address_id,
+                    input_html: {
+                      data: {
+                        controller: 'places-autocomplete',
+                        action: 'keydown->updateAllAddressFields'
+                      },
+                      autocomplete: 'off'
+                    } %>
+      </div>
+      <div class="col-12">
+        <%= link_to t('globals.cancel'), new_service_request_path(), class: 'btn btn-danger'  %>
+      </div>
+    </div>
+  <% end %>
+
+  <hr>
+
+  <section class="row">
+    <div class="col-12">
+      <h1 class="h4 mb-4">
+        <%= t('components.service_request_form.pickup') %>
+      </h1>
+    </div>
+    <div class="col-6">
+      <%= f.input :pickup_address_id, collection: current_organization.warehouse_addresses  %>
+    </div>
+  </section>
+
+  <section class="row align-items-end">
+    <div class="col-6">
+      <%= f.input :pickup_range,
+            label: t('components.service_request_form.pickup_dates'),
+            input_html: {
+              data: {
+                controller: "datepicker",
+                datepicker_date_format: "Y-m-d",
+                datepicker_min_date: Time.zone.now,
+                datepicker_mode: 'range'
+              }
+            } %>
+    </div>
+    <div class="col-6">
+      <%= f.input :pickup_during_work_hours, as: :boolean, input_html: { checked: true }, label: t('components.service_request_form.pickup_anytime_during_work_hours') %>
+    </div>
+  </section>
+
+  <hr class="border-0">
+
+  <section class="row">
+    <div class="col-12">
+      <h1 class="h4 mb-4">
+        <%= t('components.service_request_form.delivery') %>
+      </h1>
+    </div>
+    <div class="col-6">
+      <%= f.input :delivery_address_id, collection: current_organization.warehouse_addresses  %>
+    </div>
+  </section>
+
+  <section class="row">
+    <div class="col-6">
+      <%= f.input :deliver_range,
+            label: t('components.service_request_form.delivery_in_these_dates'),
+            hint: t('components.service_request_form.choose_only_one_date_to_set_a_specific_date_of_delivery'),
+            input_html: {
+              data: {
+                controller: "datepicker",
+                datepicker_date_format: "Y-m-d",
+                datepicker_min_date: Time.zone.now,
+                datepicker_mode: 'range'
+              }
+            } %>
+    </div>
+    <div class="col-3">
+      <%= f.input :deliver_between_start,
+        label: t('components.service_request_form.from'),
+        input_html: {
+          data: {
+            controller: "datepicker",
+            datepicker_date_format: "Y-m-d",
+            datepicker_min_date: Time.zone.now,
+            datepicker_mode: 'time'
+          }
+        } %>
+    </div>
+
+    <div class="col-3">
+      <%= f.input :deliver_between_end,
+            label: t('components.service_request_form.to'),
+            input_html: {
+              data: {
+                controller: "datepicker",
+                datepicker_date_format: "Y-m-d",
+                datepicker_min_date: Time.zone.now,
+                datepicker_mode: 'time'
+              }
+            } %>
+    </div>
+  </section>
+
+
+  <hr>
+
+  <section class="row">
+    <div class="col-12">
+      <h1 class="h4 mb-4">
+        <%= t('components.service_request_form.parcels') %>
+      </h1>
+    </div>
+    <div class="col-12">
+      <div class="card rounded px-4 pt-4">
+        <table class="table table-sm table-centered w-100 text-center">
+          <thead>
+            <tr>
+              <th class="border-top-0" style="width: 40px;">
+                <%= t('components.service_request_form.#') %>
+              </th>
+              <th class="border-top-0">
+                <%= t('components.service_request_form.width') %>
+              </th>
+              <th class="border-top-0">
+                <%= t('components.service_request_form.height') %>
+              </th>
+              <th class="border-top-0">
+                <%= t('components.service_request_form.length') %>
+              </th>
+              <th class="border-top-0">
+                <%= t('components.service_request_form.weight') %>
+              </th>
+              <th class="border-top-0">
+                <%= t('components.service_request_form.actions') %>
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            <% session[:parcels].each_with_index do |parcel, index| %>
+              <tr class="animate__fadeIn">
+                <td>
+                  <%= index + 1 %>
+                </td>
+                <td>
+                  <%= parcel.width %>
+                </td>
+                <td>
+                  <%= parcel.height %>
+                </td>
+                <td>
+                  <%= parcel.length %>
+                </td>
+                <td>
+                  <%= parcel.weight %>
+                </td>
+                <td style="vertical-align: middle;">
+                  <%= link_to '#', class: 'btn btn-sm btn-icon btn-danger', data: { reflex: 'click->ServiceRequests::FormReflex#remove_parcel', target: "parcel-#{index}", } do %>
+                    <%= inline_svg_tag 'icons/linear/trash.svg', class: 'icon icon-sm icon-white' %>
+                  <% end %>
+                </td>
+              </tr>
+            <% end %>
+
+            <tr>
+              <td>
+              </td>
+              <td>
+                <%= number_field_tag 'parcel[width]', '', id: 'parcel-width', placeholder: t('components.service_request_form.cm'), class: 'form-control form-control-sm mb-0' %>
+              </td>
+              <td>
+                <%= number_field_tag 'parcel[height]', '', id: 'parcel-height', placeholder: t('components.service_request_form.cm'), class: 'form-control form-control-sm mb-0' %>
+              </td>
+              <td>
+                <%= number_field_tag 'parcel[length]', '', id: 'parcel-length', placeholder: t('components.service_request_form.cm'), class: 'form-control form-control-sm mb-0' %>
+              </td>
+              <td>
+                <%= number_field_tag 'parcel[weight]', '', id: 'parcel-weight', placeholder: t('components.service_request_form.kg'), class: 'form-control form-control-sm mb-0' %>
+              </td>
+              <td style="vertical-align: middle;">
+                <%= link_to '#', class: 'btn btn-sm btn-icon btn-primary', data: { action: 'click->service-requests--form#addParcel' } do %>
+                  <%= inline_svg_tag 'icons/linear/plus.svg', class: 'icon icon-sm icon-white' %>
+                <% end %>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <hr>
+
+  <section class="row">
+    <div class="col-12">
+      <%= f.input :description, as: :text %>
+    </div>
+    <div class="col-12">
+      <%= f.input :notes, as: :text %>
+    </div>
+  </section>
+  <div class="form-actions">
+    <%= link_to 'Back', service_requests_path, class: 'btn btn-gray' %>
+    <%= f.submit t('components.service_request_form.create_request'), class: 'btn btn-primary' %>
+  </div>
+<% end %>

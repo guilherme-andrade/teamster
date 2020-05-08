@@ -1,0 +1,58 @@
+<article class="card grid-table-row p-4">
+  <div class="grid-table-cell grid-table-cell-center">
+    <%= render ServiceRequests::StatusLabelComponent.new(service_request: service_request) %>
+  </div>
+  <div>
+    <dl>
+      <dt>
+        <%= t('components.service_request.recipient') %>
+      </dt>
+      <dd>
+        <%= recipient_name %>
+      </dd>
+    </dl>
+  </div>
+  <div>
+    <dl>
+      <dt>
+        <%= t('components.service_request.tracking_link') %>
+      </dt>
+      <dd>
+        <%= link_to tracking_link  do  %>
+          <%= t('components.service_request.tracking_link') %>
+        <% end %>
+      </dd>
+    </dl>
+  </div>
+  <div>
+    <dl>
+      <dt>
+        <%= t('components.service_request.expected_pickup') %>
+      </dt>
+      <dd>
+        <%= l(pickup_before, format: :short) %>
+      </dd>
+    </dl>
+  </div>
+  <div>
+    <dl>
+      <dt>
+        <%= t('components.service_request.expected_delivery') %>
+      </dt>
+      <dd>
+        <%= l(deliver_before, format: :short) %>
+      </dd>
+    </dl>
+  </div>
+  <div class="grid-table-cell grid-table-cell-center justify-content-end">
+    <%= link_to service_request, class: 'btn btn-sm btn-success px-1 mr-1' do %>
+      <%= inline_svg_tag 'icons/linear/eye.svg', class: 'icon icon-sm icon-white' %>
+    <% end %>
+    <%= link_to edit_service_request_path(service_request), class: 'btn btn-sm btn-warning px-1 mr-1' do %>
+      <%= inline_svg_tag 'icons/linear/pencil.svg', class: 'icon icon-sm icon-white' %>
+    <% end %>
+    <%= link_to service_request, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-sm btn-danger px-1 mr-1' do %>
+      <%= inline_svg_tag 'icons/linear/trash.svg', class: 'icon icon-sm icon-white' %>
+    <% end %>
+  </div>
+</article>

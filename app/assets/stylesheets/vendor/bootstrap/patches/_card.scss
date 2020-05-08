@@ -1,0 +1,109 @@
+.card {
+  @extend .shadow;
+
+  * {
+    line-height: 1;
+  }
+
+  p,
+  h1, h2, h3, h4, h5, h6 {
+    line-height: 1.2;
+  }
+
+  &-clickable {
+    cursor: pointer;
+    border: 1px solid $border-color;
+    transition: all .2s $cubic-timing-function;
+
+    &:hover {
+      border-color: $black;
+      box-shadow: $box-shadow;
+    }
+  }
+
+  &-text-muted {
+    font-weight: $font-weight-light;
+    color: $text-muted;
+  }
+
+  &-small-muted {
+    @extend .card-text-muted;
+
+    font-size: $small-font-size;
+  }
+
+  &-footer {
+    background: transparent;
+    border: none;
+    padding-top: 0;
+    padding-bottom: 0;
+  }
+
+  &-square {
+    position: relative;
+
+    &::after {
+      content: '';
+      display: block;
+      padding-bottom: 100%;
+    }
+
+    .card-content {
+      position: absolute;
+      height: 100%;
+      left: 0;
+      top: 0;
+      width: 100%;
+    }
+  }
+
+  &-xs {
+    height: 100px;
+  }
+
+  &-sm {
+    height: 150px;
+  }
+
+  &-md {
+    height: 200px;
+  }
+
+  &-lg {
+    height: 300px;
+  }
+
+  &-xl {
+    height: 400px;
+  }
+
+  &-layer {
+    @extend .layer;
+  }
+
+  &-nav-popover {
+    position: absolute;
+    top: $card-spacer-x;
+    right: $card-spacer-x;
+    z-index: 10;
+  }
+
+  &:hover {
+    .card-nav-popover {
+      z-index: 100;
+      right: -100px;
+    }
+  }
+
+  &-img-layer {
+    @extend .layer;
+  }
+
+  &-img-layer-corner {
+    height: auto;
+    left: $card-spacer-x;
+    position: absolute;
+    top: $card-spacer-x;
+    width: auto;
+  }
+}

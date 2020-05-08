@@ -1,0 +1,84 @@
+@keyframes slideInFromLeft {
+  0% {
+    transform: translateX(200%);
+    opacity: .2;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+@keyframes slideInFromRight {
+  0% {
+    transform: translateX(-20%);
+    opacity: .2;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+// $application-dialog-width: 300px;
+$application-sidebar-width: 250px;
+
+.application {
+  width: 100vw;
+  position: relative;
+
+  &-sidebar {
+    @extend .rounded, .shadow, .bg-white;
+
+    position: fixed;
+    top: $spacer;
+    left: $spacer;
+    width: 250px;
+    height: auto;
+    flex-shrink: 0;
+    z-index: 999;
+  }
+
+  &-content {
+    @extend .pr-6, .pt-4, .pb-10, .bg-light;
+
+    left: 0;
+    position: absolute;
+    padding-left: calc(#{$application-sidebar-width} + #{$spacer * 4});
+    width: 100vw;
+    top: 0;
+    height: 100vh;
+    overflow-y: scroll;
+  }
+
+  // &-dialog {
+  //   position: fixed;
+  //   top: 0;
+  //   right: 0;
+  //   height: 100vh;
+  //   width: $application-dialog-width;
+  //   order: 2;
+  //   transition: all 0.2s cubic-bezier(.76,-0.41,.48,1.4) .1s;
+  //   z-index: 1050;
+  //   background: $white;
+
+  //   @include media-breakpoint-down(lg) {
+  //     position: fixed;
+  //   }
+
+  //   &:not(.show) {
+  //     transform: translateX(100%);
+  //   }
+  // }
+
+  // &-dialog-left {
+  //   @extend .application-dialog;
+
+  //   order: 0;
+  //   right: unset;
+  //   left: 0;
+
+  //   &:not(.show) {
+  //     transform: translateX(-100%);
+  //   }
+  // }
+}

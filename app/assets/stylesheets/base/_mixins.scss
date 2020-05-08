@@ -1,0 +1,27 @@
+.no-scrollbar {
+  -ms-overflow-style: none;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+@mixin highlighted($color: 'error', $top: 5%, $right: 5%) {
+  position: relative;
+
+  &::after {
+    @extend .rounded-circle;
+
+    content: '';
+    position: absolute;
+    top: $top;
+    right: $right;
+    background: theme-color($color);
+    width: 8px;
+    height: 8px;
+  }
+}
+
+.highlighted {
+  @include highlighted;
+}

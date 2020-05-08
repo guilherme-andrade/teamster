@@ -1,0 +1,25 @@
+.close {
+  opacity: 1;
+  position: absolute;
+  right: 0;
+  z-index: 10;
+  height: 10px;
+  width: 10px;
+  right: 10px;
+
+  &-left {
+    right: unset;
+    left: 0;
+  }
+
+  &:not(.no-icon) {
+    background-image: asset-url('icons/linear/cross.svg');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+  }
+
+  .no-icon {
+    @extend .small;
+  }
+}

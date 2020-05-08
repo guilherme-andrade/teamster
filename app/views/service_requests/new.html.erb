@@ -1,0 +1,41 @@
+<div class="row">
+  <div class="col-12">
+    <h1>
+      <%= t('components.service_request_form.new_service_request') %>
+    </h1>
+  </div>
+  <div class="col-7">
+    <%= render 'form', service_request: @service_request %>
+  </div>
+  <div class="col-5 pl-6">
+    <div class="jumbotron bg-white shadow py-5">
+      <h2 class="h4">
+        <%= t('components.service_request_form.youre_about_to_create_your_first_service_request!') %>
+      </h2>
+      <hr class="border-light">
+      <p class="mb-2">
+        <strong>
+          <%= t('components.service_request_form.make_sure_that').html_safe %>
+        </strong>
+      </p>
+      <ol class="pl-3">
+        <li>
+          <%= t('components.service_request_form.the_chosen_pickup_time_works_for_your_business').html_safe %>
+        </li>
+        <li>
+          <%= t('components.service_request_form.the_customer_confirmed_his_availability_on_the_chosen_delivery_schedule').html_safe %>
+        </li>
+        <li>
+          <%= t('components.service_request_form.the_parcel_details_are_as_accurate_as_possible').html_safe %>
+        </li>
+      </ol>
+      <p class="small mb-0 text-muted">
+        <%= t('components.service_request_form.got_questions?') %>
+        <u>
+          <%= link_to t('globals.ask_for_help'), '#', class: 'ml-2' %>
+        </u>
+      </p>
+    </div>
+  </div>
+</div>
+

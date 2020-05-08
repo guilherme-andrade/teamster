@@ -1,0 +1,64 @@
+$navbar-height: 100px;
+
+.navbar {
+  height: $navbar-height;
+  top: 0;
+  z-index: 100;
+  font-family: $headings-font-family;
+  font-size: $font-size-lg;
+
+  &-brand { // same as selecting .navbar-brand
+    svg {
+      width: 200px;
+      height: auto;
+      object-fit: contain;
+    }
+  }
+
+  &-nav,
+  &-collapse {
+    height: 100%;
+  }
+
+  .nav-item {
+    height: 100%;
+
+    & > small {
+      line-height: 1.2;
+    }
+
+    position: relative;
+  }
+
+  .nav-link {
+    display: flex;
+    align-items: center;
+
+    &.highlighted {
+      @include highlighted($top: 6px, $right: $navbar-nav-link-padding-x)
+    }
+
+    &::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      height: 4px;
+      background: $primary;
+      width: 100%;
+      opacity: 0;
+      transition: opacitiy .5s ease-in-out;
+      will-change: opacity;
+    }
+
+    &:hover {
+      svg * {
+        fill: $navbar-light-hover-color;
+      }
+
+      &::after {
+        opacity: 1;
+      }
+    }
+  }
+}

@@ -1,0 +1,50 @@
+---
+pt:
+  components:
+    landing_banner:
+      sign_up_now: Sign up now
+      sign_up_now_to_start_dispatching: Sign up now to start dispatching
+      the_best_way_to_deliver: The best way to deliver
+    navbar:
+      home: Home
+      payments: Payments
+      requests: Requests
+      sign_in: Sign in
+    service_request:
+      expected_delivery: Expected delivery
+      expected_pickup: Expected pickup
+      recipient: Recipient
+      tracking_link: Tracking link
+    service_request_form:
+      actions: Actions
+      add_new: Add new
+      cm: Cm
+      create_request: Create request
+      got_questions?: Got questions?
+      height: Height
+      id: Id
+      kg: Kg
+      length: Length
+      make_sure_that: Make sure that
+      new_service_request: New service request
+      parcels: Parcels
+      phone_number: Phone number
+      pickup_and_delivery: Pickup and delivery
+      recipient: Recipient
+      select_one: Select one
+      the_chosen_pickup_time_works_for_your_business: The chosen pickup time works for your business
+      the_customer_confirmed_his_availability_on_the_chosen_delivery_schedule: The customer confirmed his availability on the chosen delivery schedule
+      the_parcel_details_are_as_accurate_as_possible: The parcel details are as accurate as possible
+      weight: Weight
+      width: Width
+      youre_about_to_create_your_first_service_request!: Youre about to create your first service request!
+    sidebar:
+      account_settings: Account settings
+      addressess: Addressess
+      dashboard: Dashboard
+      payments: Payments
+      recipients: Recipients
+      service_requests: Service requests
+      shop: Shop
+      sign_out: Sign out
+      warehouses: Warehouses

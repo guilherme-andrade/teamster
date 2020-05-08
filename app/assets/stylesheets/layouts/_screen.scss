@@ -1,0 +1,69 @@
+.screen {
+  @include size(100%, 100vh);
+
+  position: relative;
+
+  &-header {
+    position: relative;
+    z-index: 100;
+  }
+
+  &-with-header {
+    height: calc(100vh - #{$navbar-height + $nav-pills-height});
+  }
+
+  &-with-sidebar {
+    display: flex;
+  }
+
+  &-sidebar {
+    position: sticky !important;
+    top: 0;
+    flex: 0 0 300px;
+
+    &.screen-with-header {
+      top: $navbar-height + $nav-pills-height;
+    }
+
+    &-with-navbar {
+      height: calc(100vh - #{$navbar-height});
+    }
+  }
+
+
+  &-lg {
+    @include size(100vw, auto);
+
+    min-height: 100vh;
+  }
+
+  &-overlay {
+    @extend .layer-overlay;
+  }
+
+  &-layer {
+    @extend .layer;
+  }
+
+  &-background {
+    @extend .layer-background;
+  }
+
+  &-blob {
+    position: absolute;
+    width: 100%;
+    top: 0;
+    left: 0;
+    height: auto;
+
+    &-bottom {
+      bottom: 0;
+      top: unset;
+    }
+
+    &-top {
+      top: 0;
+      top: unset;
+    }
+  }
+}

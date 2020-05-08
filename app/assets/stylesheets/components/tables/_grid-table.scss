@@ -1,0 +1,18 @@
+$grid-table-columns-lg: 6;
+$grid-table-column-width-lg: 100% / $grid-table-columns-lg;
+
+.grid-table {
+  &-row {
+    display: inline-grid;
+    width: 100%;
+    grid-template-columns: repeat($grid-table-columns-lg, minmax($grid-table-column-width-lg, $grid-table-column-width-lg));
+  }
+
+  // &-cell {}
+
+  &-cell-center {
+    display: flex;
+    align-items: center;
+  }
+}
+

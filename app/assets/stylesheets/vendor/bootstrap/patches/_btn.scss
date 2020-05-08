@@ -1,0 +1,11 @@
+.btn {
+  // @each $color-name, $color-code in $theme-colors {
+  //   &-#{$color-name}:not(.input-group-btn) {
+  //     border-bottom: 4px solid darken($color-code, 10%);
+  //   }
+  // }
+
+  &-lg {
+    font-weight: $font-weight-bolder;
+  }
+}

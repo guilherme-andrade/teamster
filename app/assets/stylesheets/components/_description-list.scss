@@ -1,0 +1,12 @@
+dl {
+  margin-bottom: 0;
+
+  dt,
+  dd:not(:last-child) {
+    margin-bottom: 4px;
+  }
+
+  dd {
+    margin-bottom: 0;
+  }
+}

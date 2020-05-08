@@ -1,0 +1,8 @@
+@import 'grid-table';
+@import 'grid-tables/grid-tables';
+
+.table-centered {
+  td, th {
+    vertical-align: middle !important;
+  }
+}

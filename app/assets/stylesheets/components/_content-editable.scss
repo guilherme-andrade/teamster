@@ -1,0 +1,8 @@
+.content-editable {
+  background: transparent;
+  border: none;
+
+  &-large {
+    font-size: $font-size-lg;
+  }
+}

@@ -1,0 +1,17 @@
+.list-inline {
+  &-dotted {
+    li {
+      position: relative;
+
+      &:not(:last-child) {
+        margin-right: 0;
+
+        &::after {
+          content: '·';
+          margin: 0 $spacer / 2;
+          font-weight: bold;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,9 @@
+$sr-grid-table-columns-lg: 4;
+$sr-grid-table-sm-column-width: 12.5%;
+$sr-grid-table-column-width-lg: (100% - $sr-grid-table-sm-column-width * 2) / $sr-grid-table-columns-lg;
+
+.grid-table-of-service-requests {
+  .grid-table-row {
+    grid-template-columns: $sr-grid-table-sm-column-width repeat($sr-grid-table-columns-lg, minmax($sr-grid-table-column-width-lg, $sr-grid-table-column-width-lg)) $sr-grid-table-sm-column-width;
+  }
+}

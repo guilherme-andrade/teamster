@@ -1,0 +1,84 @@
+.icon {
+  height: 24px;
+  width: 24px;
+  object-fit: contain;
+  object-position: center;
+
+  * {
+    fill: $body-color;
+  }
+
+  &-h1 {
+    height: $h1-font-size;
+    width: $h1-font-size;
+  }
+
+  &-xl {
+    width: 100px;
+    height: 100px;
+    object-fit: contain;
+  }
+
+  &-lg {
+    width: 50px;
+    height: 50px;
+    object-fit: contain;
+  }
+
+  &-md {
+    width: 35px;
+    height: 35px;
+    object-fit: contain;
+  }
+
+  &-sm {
+    width: $font-size-base;
+    height: $font-size-base;
+    line-height: $font-size-base;
+    object-fit: contain;
+  }
+
+  &-xs {
+    width: 12px;
+    height: 12px;
+    line-height: 12px;
+    object-fit: contain;
+  }
+
+
+  &-xxs {
+    width: 13px;
+    height: 13px;
+    line-height: 13px;
+    object-fit: contain;
+  }
+
+  &-full {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+
+  &-transparent {
+    opacity: 0.9;
+  }
+}
+
+@each $color-name, $color-code in $theme-colors {
+  .icon-bg-#{$color-name} {
+    @extend .border-#{$color-name};
+
+    background: rgba($color-code, 0.2);
+
+    svg path,
+    &:hover svg path {
+      fill: $color-code;
+    }
+  }
+
+  .icon-#{$color-name} {
+    * {
+      fill: $color-code;
+    }
+  }
+}

@@ -1,0 +1,14 @@
+<nav class="navbar navbar-expand-lg navbar-light justify-content-between w-100">
+  <div class="h-100 d-flex align-items-center">
+    <a class="navbar-brand" href="#">
+      <%= inline_svg 'logo-fitted.svg' %>
+    </a>
+
+    <div class="navbar-nav navbar-right d-none d-lg-flex">
+      <%= link_to t('components.navbar.home'), root_path, class: 'nav-item nav-link font-weight-bold' %>
+      <%= link_to t('components.navbar.requests'), 'service_requests_path', class: 'nav-item nav-link' %>
+      <%= link_to t('components.navbar.payments'), 'payments', class: 'nav-item nav-link' %>
+    </div>
+  </div>
+</nav>
+

@@ -1,0 +1,64 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Recipient:</strong>
+  <%= @service_request.recipient_id %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @service_request.description %>
+</p>
+
+<p>
+  <strong>Notes:</strong>
+  <%= @service_request.notes %>
+</p>
+
+<p>
+  <strong>Pickup address:</strong>
+  <%= @service_request.pickup_address_id %>
+</p>
+
+<p>
+  <strong>Delivery address:</strong>
+  <%= @service_request.delivery_address_id %>
+</p>
+
+<p>
+  <strong>Pickup tracking link:</strong>
+  <%= @service_request.pickup_tracking_link %>
+</p>
+
+<p>
+  <strong>Pickup after:</strong>
+  <%= @service_request.pickup_after %>
+</p>
+
+<p>
+  <strong>Pickup before:</strong>
+  <%= @service_request.pickup_before %>
+</p>
+
+<p>
+  <strong>Picked up at:</strong>
+  <%= @service_request.picked_up_at %>
+</p>
+
+<p>
+  <strong>Deliver before:</strong>
+  <%= @service_request.deliver_before %>
+</p>
+
+<p>
+  <strong>Delivery tracking link:</strong>
+  <%= @service_request.delivery_tracking_link %>
+</p>
+
+<p>
+  <strong>Status:</strong>
+  <%= @service_request.status %>
+</p>
+
+<%= link_to 'Edit', edit_service_request_path(@service_request) %> |
+<%= link_to 'Back', service_requests_path %>

@@ -1,0 +1,10 @@
+<header class="d-flex justify-content-between align-items-center mb-4">
+  <h1 class="mb-0 h3">Service Requests</h1>
+  <%= link_to 'New Service Request', new_service_request_path, class: 'btn btn-primary' %>
+</header>
+
+<section class="grid-table grid-table-of-service-requests">
+  <%= render ServiceRequests::CardComponent.with_collection(@service_requests) %>
+</section>
+
+

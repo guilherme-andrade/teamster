@@ -1,0 +1,29 @@
+.banner {
+  width: 100%;
+  position: relative;
+  height: 75vh;
+
+  &-layer {
+    @extend .layer;
+  }
+
+  &-overlay { // selects .banner-layer
+    @extend .layer-overlay; // gets all the css properties of .banner-overlay
+  }
+
+  &-background {
+    @extend .layer-background;
+  }
+
+  &-img {
+    @extend .img-cover;
+  }
+
+  &-sm {
+    height: 400px;
+  }
+
+  &-xs {
+    height: auto;
+  }
+}
